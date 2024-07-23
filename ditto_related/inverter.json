@@ -1,0 +1,42 @@
+{
+    "policyId": "my.test:policy",
+    "attributes": {
+        "name": "SolarPark_Canteen 2_Inverter 3",
+        "manufacturer": "HUAWEI",
+        "model": "SUN2000_100KTL_M1",
+        "serialNumber": "--",
+        "location": "Empty",
+        "site": "Empty"
+    },
+    "features": {
+        "measurements": {
+            "properties": {
+                "capacity": 0,
+                "meterReadTotalEnergy": 508748.54,
+                "activePower": 39.89,
+                "inputPower": 40.55,
+                "efficiency": 98.36,
+                "internalTemp": 51.5,
+                "gridFrequency": 49.97,
+                "productionToday": 28.43,
+                "yieldToday": 0.25,
+                "reactivePower": 0,
+                "apparentPower": 0,
+                "powerFactor": 0,
+                "state": "Full Capability"
+            }
+        },
+        "runningstatus" : {
+            "properties" : {
+                "stage" : "Empty",
+                "stageStartOn" : "",
+                "StageDurationMinute": 0
+            }
+        },
+        "label" : {
+            "properties" : {
+                "labels" : [] 
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "policyId": "my.test:policy",
+    "attributes": {
+        "name": "SolarPark_Canteen 2_Inverter 2",
+        "manufacturer": "HUAWEI",
+        "model": "SUN2000_100KTL_M1",
+        "serialNumber": "--",
+        "location": "Empty",
+        "site": "Empty"
+    },
+    "features": {
+        "measurements": {
+            "properties": {
+                "power": 0,
+                "voltage": 0,
+                "current": 0,
+                "energy": 0
+            }
+        }
+    }
+}

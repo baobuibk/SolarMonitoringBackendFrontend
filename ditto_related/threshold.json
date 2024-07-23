@@ -1,0 +1,25 @@
+{
+    "policyId": "my.test:policy",
+    "attributes": {
+        "name": "SolarPark_InverterThreshold",
+        "site": 1
+    },
+    "features": {
+        "thresholds": {
+            "properties": {
+                "internalTempWarning": 88,
+                "internalTempFault": 99,
+                "inputPowerWarning": 12,
+                "inputPowerFault": 44,
+                "outputPowerWarning": 3,
+                "outputPowerFault": 6
+            }
+        },
+        "idlealarm": {
+            "properties": {
+                "on": false,
+                "minutesToAlarm": null
+            }
+        }
+    }
+}

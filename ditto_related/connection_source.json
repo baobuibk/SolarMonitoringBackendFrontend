@@ -1,0 +1,40 @@
+{
+    "targetActorSelection": "/system/sharding/connection",
+    "headers": {
+        "aggregate": false
+    },
+    "piggybackCommand": {
+        "type": "connectivity.commands:createConnection",
+        "connection": {
+            "id": "robin",
+            "connectionType": "mqtt",
+            "connectionStatus": "open",
+            "failoverEnabled": true,
+            "uri": "tcp://broker.emqx.io:1883",
+            "sources": [
+                {
+                    "addresses": [
+                        "/neuron/invertersite1"
+                    ],
+                    "authorizationContext": [
+                        "nginx:ditto"
+                    ],
+                    "qos": 0,
+                    "filters": []
+                }
+            ],
+            "mappingContext": {
+                "mappingEngine": "JavaScript",
+                "options": {
+                    "incomingScript": "function mapToDittoProtocolMsg(headers, textPayload, bytePayload, contentType) {const jsonString = String.fromCharCode.apply(null, new Uint8Array(bytePayload)); const jsonData = JSON.parse(jsonString);    const thingId = jsonData.thingId.split(':');    const value = {        measurements: {            properties: {                capacity: jsonData.capacity,                internalTemp: jsonData.internalTemp,                inputPower: jsonData.inputPower,                gridFrequency: jsonData.gridFrequency,                powerFactor: jsonData.powerFactor,            }        }    };    return Ditto.buildDittoProtocolMsg(thingId[0], thingId[1], 'things', 'twin', 'commands', 'modify', '/features', headers, value);}",
+                    "outgoingScript": "function mapFromDittoProtocolMsg(namespace, id, group, channel, criterion, action, path, dittoHeaders, value, status, extra) {return null;}",
+                    "loadBytebufferJS": "false",
+                    "loadLongJS": "false"
+                }
+            },
+            "tags": [
+                "site1"
+            ]
+        }
+    }
+}
